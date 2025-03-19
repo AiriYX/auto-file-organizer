@@ -11,25 +11,32 @@ listOfDirectory = os.listdir(directory)
 filesInDirectory = [file for file in listOfDirectory if os.path.isfile(os.path.join(directory, file))]
 
 print(f"Here is the files in this directory: ", filesInDirectory)
+# This will track the occurences already
+word_counts = {}  
+ # Stores words associated with each file instead of rewriting the var split words over and over again
+file_word_map = {}
 
 # Step 3: Extract keyword from filenames using dictionary
 for file in filesInDirectory:
-    splitWords = re.findall(r'\b\w+\b', file)
+    splitWords = re.findall(r'\b\w+\b', file) #extract indivual words
+    file_word_map[file] = splitWords # Stores words for this file indiviually
+
+    for word in splitWords:
+        word_counts[word] = word_counts.get(word, 0) + 1 
     print(splitWords)
 
-# Use dictionary to store the keywords and the occurances
-word_counts = {}
-for word in splitWords:
-    if word in word_counts:
-        word_counts[word] += 1
-    else:
-        word_counts[word] = 1
-
-appearedTwice = [key for key in word_counts if word_counts[key] > 1]
 
 for key,value in word_counts.items():
-    print(key)
+    print("This is the key: ", key)
 
 # now that we know there is two that has more than 1 appearance, we can group them up
-
 grouped_files = {}
+for file, words in file_word_map.items():
+    for word in words:
+            if word_counts[word] > 1:
+                 grouped_files.setdefault(word, []).append(file)
+
+#grouped result:
+for key,files in grouped_files.items():
+     print(f"Keyword '{key}' is found in {files}")
+
