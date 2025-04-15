@@ -42,8 +42,23 @@ def organize_files(directory):
     for key,files in grouped_files.items():
         print(f"Keyword '{key}' is found in {files}")
 
-    # Creating directory with 
+    # Creating directory with keywords and moving files
+        #1. create a folder named after the keyword
+        #2. move each associat3ed file into that folder
 
+    for keyword, files in grouped_files.items():
+        folder_path = os.path.join(directory, keyword)
+        os.makedirs(folder_path, exist_ok=True) # if the folderpath exists, then create a directory
+
+    for file in files:
+        source_path = os.path.join(directory, file)
+        destination_path = os.path.join(folder_path, file)
+        
+        try:
+            shutil.move(source_path, destination_path) # shutil.move arg: shutil.move(src, dst)
+            print(f"Moved '{file}' to '{keyword}/'")
+        except FileNotFoundError:
+            print(f"File '{file}' not found. Skipping.")
 
 
     if not os.path.exists(directory):
