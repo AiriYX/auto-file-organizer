@@ -23,4 +23,4 @@ A Python-powered tool that **automatically organizes files** based on common pat
 
 ## 🔒 License
 
-This project is licensed under **Creative Commons BY-NC 4.0**, meaning you are free to view it but cannot use it for commercial purposes.
+This project is licensed under the MIT No Redistribution License. This means you may view and reference the code for personal and demonstration purposes only. Redistribution, commercial use, or modification without permission is strictly prohibited. See the [LICENSE](LICENSE) file for full terms.
