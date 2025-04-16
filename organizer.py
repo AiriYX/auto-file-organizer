@@ -1,4 +1,5 @@
 # command-line logic, main script
+#!/usr/bin/env/ python3
 from file_utils import organize_files
 
 if __name__ == "__main__":
