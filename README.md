@@ -10,14 +10,40 @@ A Python script that programmatically organizes files in a specified directory b
 - Supports multiple file formats (.pdf, .txt, .docx, etc.)
 - Built for macOS with easily configurable cross-platform compatibility
 
-## 📌 How It Works
+## ⚙️ Usage
 
-1. Scans the target directory and retrieves all filenames.
-2. Uses regular expressions to tokenize filenames into substrings.
-3. Counts the frequency of each token across all files.
-4. Identifies high-frequency keywords as categorization labels.
-5. Creates folders named after these keywords.
-6. Moves files into folders based on which keyword(s) their filenames contain.
+1. Clone the repository:
+
+   ```
+   git clone https://github.com/your-username/auto-file-organizer.git
+   cd auto-file-organizer
+   ```
+
+2. Rename the main script to `tidyup` and make it executable:
+
+   ```
+   mv tidyup.py tidyup
+   chmod +x tidyup
+   ```
+
+3. Add a shebang to the top of the file if it's not already there:
+
+   ```
+   #!/usr/bin/env python3
+   ```
+
+4. Run the script from the terminal:
+
+   ```
+   ./tidyup
+   ```
+
+5. What happens under the hood:
+   - The script scans the target directory and retrieves all filenames.
+   - It uses regular expressions to tokenize filenames into substrings.
+   - It counts the frequency of each token across all files.
+   - High-frequency keywords are used as labels for folder creation.
+   - Files are moved into the appropriate folder(s) based on matched keywords.
 
 ## 🚀 Future Improvements
 
